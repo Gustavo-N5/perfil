@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:perfil/screen/nav_bar.dart';
+import 'package:perfil/screen/perfil_pages/detail_perfil_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         "/": (context) => const NavBar(),
+        "/editaPerfil": (context) => const DetailPerfilPage(),
       },
     );
   }

@@ -27,11 +27,12 @@ class _PerfilPageState extends State<PerfilPage> {
             bottom: Radius.circular(0),
             top: Radius.circular(16),
           ),
-          const MenuItem(
+          MenuItem(
+            onTap: () => Navigator.pushNamed(context, "/editaPerfil"),
             sufizIcon: "assets/icons/profile_24px.svg",
             text: "Editar Perfil",
-            bottom: Radius.circular(0),
-            top: Radius.circular(0),
+            bottom: const Radius.circular(0),
+            top: const Radius.circular(0),
           ),
           const MenuItem(
             sufizIcon: "assets/icons/clicker_24px.svg",

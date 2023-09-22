@@ -9,7 +9,7 @@ class AppBarPerfil extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(color: Colors.white),
+      decoration: const BoxDecoration(color: Colors.white),
       width: width(context, 1),
       height: height(context, 0.16),
       child: Row(
@@ -22,13 +22,10 @@ class AppBarPerfil extends StatelessWidget {
               left: width(context, 0.04),
               right: width(context, 0.02),
             ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(300),
-              child: Image.asset(
-                "assets/images/Ellipse 5.png",
-                filterQuality: FilterQuality.high,
-                fit: BoxFit.cover,
-              ),
+            child: const CircleAvatar(
+              minRadius: 40,
+              maxRadius: 50,
+              backgroundImage: AssetImage("assets/images/imagem_jhon.png"),
             ),
           ),
           SizedBox(
