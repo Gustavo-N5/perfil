@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:perfil/screen/perfil_pages/bloc/perfil_bloc.dart';
+import 'package:perfil/widget/bottom_sheet_modal.dart';
 import 'package:perfil/widget/drop_menu_perfil.dart';
 import 'package:perfil/widget/helper/media_query.dart';
 import 'package:perfil/widget/my_button.dart';
@@ -12,8 +15,23 @@ class DetailPerfilPage extends StatefulWidget {
 }
 
 class _DetailPerfilPageState extends State<DetailPerfilPage> {
+  late final PerfilBloc perfilBloc;
   final TextEditingController nomeController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    perfilBloc = BlocProvider.of<PerfilBloc>(context);
+    perfilBloc.stream.listen(
+      (state) {
+        if (state is PerfilAlterarImage) {
+          bottomSheetModalCamera(context);
+        }
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,9 +58,12 @@ class _DetailPerfilPageState extends State<DetailPerfilPage> {
                 ),
               ),
             ),
-            const MyButton(
+            MyButton(
+              onTap: () {
+                perfilBloc.alterarFoto();
+              },
               colorButton: Colors.white,
-              text: Text(
+              text: const Text(
                 "Alterar foto",
                 style: TextStyle(
                   color: Color(0xFF2371EE),

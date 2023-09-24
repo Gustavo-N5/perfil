@@ -45,7 +45,7 @@ class MenuItem extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: width(context, 0.05)),
                 child: SvgPicture.asset(sufizIcon),
               ),
-              Container(
+              SizedBox(
                 width: width(context, 0.6),
                 child: Text(
                   text,

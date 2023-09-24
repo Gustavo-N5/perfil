@@ -61,7 +61,7 @@ class _DropMenuPerfilState extends State<DropMenuPerfil> {
               },
               items: list
                   .map((list) =>
-                      DropdownMenuItem(value: list, child: Text("$list")))
+                      DropdownMenuItem(value: list, child: Text(list)))
                   .toList(),
             ),
           ),
