@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:perfil/screen/detail_page/bloc/detail_bloc.dart';
+import 'package:perfil/screen/detail_page/detail_perfil_page.dart';
 import 'package:perfil/screen/nav_bar.dart';
-import 'package:perfil/screen/perfil_pages/bloc/perfil_bloc.dart';
-import 'package:perfil/screen/perfil_pages/detail_perfil_page.dart';
+import 'package:perfil/screen/perfil/bloc/perfil_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,8 +17,11 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => PerfilBloc(),
-        )
+          create: (context) => PerfilBloc()..add(PerfilEventLoaded()),
+        ),
+        BlocProvider(
+          create: (context) => DetailBloc()..add(DetailEventLoaded()),
+        ),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

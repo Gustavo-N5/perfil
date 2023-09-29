@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:perfil/screen/home_page.dart';
 import 'package:perfil/screen/journal_page.dart';
 import 'package:perfil/screen/mensage_page.dart';
-import 'package:perfil/screen/perfil_page.dart';
+import 'package:perfil/screen/perfil/perfil_page.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
